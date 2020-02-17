@@ -40,7 +40,8 @@
     overflow: hidden;
   }
 .content {
-   display: flex
+   display: flex;
+   height: 100%;
 }
 
 </style>
