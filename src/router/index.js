@@ -17,7 +17,11 @@ export const constantRouterMap = [
   {
     path: "/login",
     component: resolve => require(["../components/login.vue"], resolve)
-  }
+  },
+  // {
+  //   path: "/pikeupone",
+  //   component: resolve => require(["../pages/menu112.vue"], resolve)
+  // }
 ];
 
 export default new Router({

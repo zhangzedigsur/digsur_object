@@ -3,6 +3,7 @@
 
     <div class="content">
       <router-view></router-view>
+      <!-- <layout></layout> -->
     </div>
 
   </div>
@@ -17,7 +18,7 @@
 
     components: {
        'v-header': header,
-       'v-nav': nav
+       'v-nav': nav,
     },
     watch:{
       '$route': function () {

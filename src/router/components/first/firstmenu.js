@@ -1,7 +1,8 @@
 /** When your routing table is too long, you can split it into small modules**/
 
-import Layout from '../../../components/pickUp/pickUp1'
+import Layout from '../../../components/pickUp/index'
 import Routerview from '../../../components/pickUp/Routerview'
+import menu112 from '../../../pages/menu112'
 
 
 const router= [{
@@ -22,33 +23,32 @@ const router= [{
 let children = []
 
 router.map(item => {
+  console.log(item.name)
   let child = {
     path: '/pickUp',
     component: Routerview,
-    name: 'baseInfoManagement',
-    meta: {title: item.title, icon: item.icon, noCache: item.noCache},
+    name: '菜单1',
+    meta: {title: item.title, icon: item.icon, noCache: item.noCache}, 
     children: [{
       path: item.path,
-      component: () => import('@/pages/' + item.name),
+      component:menu112,
+      // component: resolve => require(["../../../pages/menu112"], resolve),
       name: item.name,
       meta: {title: item.title, icon: item.icon, noCache: item.noCache},
     }]
   }
   children.push(child)
+  console.log(child.children[0].path,child.children[0].component,child)
 })
 
 const baseInfoManagementRouter = {
   path: '/pickUp',
   component: Layout,
-  redirect: '/pickUp/pickup111',
+  // redirect: '/pickUp/pickupone',
   children: children,
   navigation: true,
-  name: '1级',
-  meta: {
-    title: '菜单',
-    icon: 'component'
-  },
-
+  name: '菜单1',
 }
+console.log(baseInfoManagementRouter)
 
 export default baseInfoManagementRouter
