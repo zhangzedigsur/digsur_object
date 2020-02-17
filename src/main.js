@@ -26,22 +26,22 @@ Axios.interceptors.request.use(function (config) {
   return Promise.reject(error);
 });
 
-router.beforeEach((to, from, next) => {
-  if (to.meta.requireAuth) {
-    if (localStorage.getItem('id_token')) {
-      next();
-    }
-    else {
-      next({
-        path: '/login',
-        query: {redirect: to.fullPath}
-      })
-    }
-  }
-  else {
-    next();
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   if (to.meta.requireAuth) {
+//     if (localStorage.getItem('id_token')) {
+//       next();
+//     }
+//     else {
+//       next({
+//         path: '/login',
+//         query: {redirect: to.fullPath}
+//       })
+//     }
+//   }
+//   else {
+//     next();
+//   }
+// })
 
 /* eslint-disable no-new */
 
