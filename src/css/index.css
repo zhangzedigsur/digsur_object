@@ -152,23 +152,10 @@ img {
 a {
   color: #00afc7;
 }
-#app {
+
+html,body,#app {
   height: 100%;
   width: 100%;
   background: #F5F7F9;
   font-size: 16px;
-}
-.ivu-menu {
-  display: block;
-  margin: 0;
-  padding: 0;
-  outline: 0;
-  list-style: none;
-  color: #eff0f3;
-  font-size: 14px;
-  position: relative;
-  background-color: transparent;
-  :hover{
-    background-color: #2d8cf0;
-  }
 }
