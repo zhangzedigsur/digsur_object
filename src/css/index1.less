@@ -158,6 +158,16 @@ a {
   background: #F5F7F9;
   font-size: 16px;
 }
+.list-content {
+  position: absolute;
+  top: 70px;
+  // height: 90%;
+  // width: 25%;
+  left: 0;
+  bottom: 0;
+  background: #1c2438;
+  margin-bottom: 10px;
+
 .ivu-menu {
   display: block;
   margin: 0;
@@ -168,7 +178,17 @@ a {
   font-size: 14px;
   position: relative;
   background-color: transparent;
-  :hover{
-    background-color: #2d8cf0;
+  //ivu-menu_ul{
+
+  //}
+  li {
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    background-color: transparent;
   }
+
+}
 }

@@ -1,11 +1,6 @@
 <template>
   <div class="navWrapper"  >
-    <div class="logo">
 
-      <span class="shengdian">
-        管理系统
-      </span>
-    </div>
     <div style="margin: 0 auto ;width: 70%">
   <Menu mode="horizontal" class="navMainWrapper" theme="dark" :active-name="setActive"  :default-active="onRoutes" @on-select="routeTo">
 
