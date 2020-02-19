@@ -1,9 +1,9 @@
 <template>
-  <div :class="classObj" class="app-wrapper">
+  <div  class="app-wrapper">
     <pick-up1 class="sidebar-container" />
     <div class="main-container">
       <!-- 跳转的页面部分 -->
-      <appmain />
+      <appmain/>
     </div>
   </div>
 </template>

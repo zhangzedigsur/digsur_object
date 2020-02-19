@@ -19,11 +19,10 @@
             <template slot="title">
               菜单1-1
             </template>
-            <MenuItem v-for="route in currentRoutersChildren" :name='route.children[0].name'
-              @click.native="clickLink(route.children[0].path,$event)" :key="route.children[0].name"
-              :item="route.children[0].name" >
-              <!-- :base-path="route.children[0].path"> -->
-            {{route.children[0].meta.title}}</MenuItem>
+            <MenuItem v-for="route in currentRoutersChildren" :name='route.name' :key="route.path" :item="route.name"
+              @click.native="clickLink(route.path,$event)">
+            <!-- :base-path="route.children[0].path"> -->
+            {{route.name}}</MenuItem>
           </Submenu>
           <MenuItem name="1-2">菜单1-2</MenuItem>
           <MenuItem name="1-3">菜单1-3</MenuItem>
@@ -81,10 +80,10 @@ export default {
         if (path == route) {
           self.currentRoutersChildren = router[i].children
           console.log(self.currentRoutersChildren)
-          for (var j = 0; j < self.currentRoutersChildren.length; j++) {
-            var a = self.currentRoutersChildren[j].children[0].name
-            console.log(a)
-          }
+          // for (var j = 0; j < self.currentRoutersChildren.length; j++) {
+          //   var a = self.currentRoutersChildren[j].children[0].name
+          //   console.log(a)
+          // }
         }
       }
       // self.currentRoutersChildren = this.$route.matched
@@ -96,7 +95,7 @@ export default {
       // if (!this.isExternalLink(routePath)) {
       // e.preventDefault()
       // var path = this.resolvePath(routePath)
-  
+
       this.$router.push(routePath)
       // }
     },

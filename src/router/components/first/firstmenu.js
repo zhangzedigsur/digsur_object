@@ -25,26 +25,25 @@ let children = []
 router.map(item => {
   console.log(item.name)
   let child = {
-    path: '/pickUp',
-    component: Routerview,
-    name: '菜单1',
+    path: item.path,
+    component: () => import('../../../pages/' + item.name),
+    name: item.name,
     meta: {title: item.title, icon: item.icon, noCache: item.noCache}, 
-    children: [{
-      path: item.path,
-      component:menu112,
-      // component: resolve => require(["../../../pages/menu112"], resolve),
-      name: item.name,
-      meta: {title: item.title, icon: item.icon, noCache: item.noCache},
-    }]
+    // children: [{
+    //   path: item.path,
+    //   component:menu112,
+    //   // component: resolve => require(["../../../pages/menu112"], resolve),
+    //   name: item.name,
+    //   meta: {title: item.title, icon: item.icon, noCache: item.noCache},
+    // }]
   }
   children.push(child)
-  console.log(child.children[0].path,child.children[0].component,child)
+  console.log(child)
 })
 
 const baseInfoManagementRouter = {
   path: '/pickUp',
   component: Layout,
-  // redirect: '/pickUp/pickupone',
   children: children,
   navigation: true,
   name: '菜单1',
