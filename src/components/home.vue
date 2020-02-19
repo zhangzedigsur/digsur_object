@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 100%">
+  <div id="app" style="width: 100%">
     <!--<v-header></v-header>-->
     <div class="nav">
       <v-nav></v-nav>
