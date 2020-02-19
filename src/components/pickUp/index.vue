@@ -1,10 +1,10 @@
 <template>
-  <div  class="app-wrapper">
+  <div class="listCon">
     <pick-up1 class="sidebar-container" />
-    <div class="main-container">
+    <!-- <div class="main-container"> -->
       <!-- 跳转的页面部分 -->
-      <appmain/>
-    </div>
+      <!-- <appmain/>
+    </div> -->
   </div>
 </template>
 
@@ -21,39 +21,13 @@ export default {
 }
 </script>
 
-<style rel="stylesheet/scss" lang="less" scoped>
+<style scoped lang="less">
 
-.app-wrapper {
-  @include clearfix;
-  position: relative;
+.listCon{
+  width: 15%;
   height: 100%;
-  width: 100%;
-  &.mobile.openSidebar {
-    position: fixed;
-    top: 0;
-  }
-}
-
-.drawer-bg {
-  background: #000;
-  opacity: 0.3;
-  width: 100%;
-  top: 0;
-  height: 100%;
-  position: absolute;
-  z-index: 999;
-}
-
-.hamburger-container {
-  line-height: 43px;
-  height: 34px;
-  width: 180px !important;
-  top: 60px;
-  position: fixed;
-  background-color: #304156;
-  text-align: center;
-  border-bottom: 1px solid #888;
-  z-index: 1003;
+  background: #1c2438;
+  box-sizing: border-box;
 }
 
 /*屏幕分辨率 <768， xs*/

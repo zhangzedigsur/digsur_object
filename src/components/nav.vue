@@ -6,7 +6,7 @@
       </div>
 
       <ul class="nav">
-        <li class="item" v-for="(item,index) in navList" :key="index">
+        <li class="item" :style="`border-color:${target == index? '#f6ca9d':''}`" v-for="(item,index) in navList" :key="index" @click="Office(item,index)">
           <Icon :type="item.icon" size='26' color='#f6ca9d' />
           <span>{{item.name}}</span>
         </li>
@@ -14,13 +14,12 @@
     </div>
 
     <div class="control">
-
       <div class="option">
 
         <div class="icon" @click="refersh">
           <Icon type="md-refresh" size='26' color='#f6ca9d' />
         </div>
-       
+
         <div class="icon">
           <Icon type="ios-notifications-outline" size='26' color='#f6ca9d' />
         </div>
@@ -63,12 +62,12 @@ export default {
         { name: '设置', icon: 'ios-settings-outline' },
       ],
       navList: [
-        { name: '办公业务', icon: 'ios-contact-outline' },
-        { name: '办公业务', icon: 'ios-settings-outline' },
-        { name: '办公业务', icon: 'ios-contact-outline' },
-        { name: '办公业务', icon: 'ios-settings-outline' },
+        { name: '办公业务1', icon: 'ios-contact-outline' },
+        { name: '办公业务2', icon: 'ios-settings-outline' },
+        { name: '办公业务3', icon: 'ios-contact-outline' },
+        { name: '办公业务4', icon: 'ios-settings-outline' },
       ],
-
+      target:null
     }
   },
   methods: {
@@ -79,19 +78,33 @@ export default {
 
     //退出
     logOut () {
-      console.log(111)
-      this.$router.push({ path: '/' })
+      this.$router.push({ path: '/login' })
     },
-   
-  },
-  components: {},
-  computed: {
-    onRoutes () {
-      return this.$route.path.replace('/', '');
-    },
-    setActive () {
-      return this.$route.path.replace('/', '');
+
+    Office (item,index) {
+      this.target = index
+      switch (name) {
+        case '办公业务1':
+          this.$router.push({ path: '' })
+          break;
+        case '办公业务2':
+          this.$router.push({ path: '' })
+          break;
+        case '办公业务3':
+          this.$router.push({ path: '' })
+          break;
+        case '办公业务4':
+          this.$router.push({ path: '' })
+          break;
+      }
     }
+
+  },
+
+  components: {},
+
+  computed: {
+
   }
 }
 </script>
@@ -101,7 +114,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: 9%;
   width: 100%;
   background: #1c2438;
   .left {
@@ -120,14 +133,15 @@ export default {
     }
     .nav {
       display: flex;
-      margin-left: 20px;
+      margin-left: 6.5%;
+      width: 75%;
       height: 100%;
       .item {
         display: flex;
         align-items: center;
         justify-content: center;
         box-sizing: border-box;
-        padding: 0 20px;
+        width: 25%;
         height: 100%;
         border-bottom: 5px solid #1c2438;
         span {
@@ -201,4 +215,5 @@ export default {
     }
   }
 }
+
 </style>

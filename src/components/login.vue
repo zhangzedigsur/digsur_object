@@ -64,7 +64,7 @@ export default {
         // let arr = ["pickUp", "acquisition", "module"];
         this.$Message.success("登录成功!");
         // this.$router.push({ path: arr[0] });
-        this.$router.push('/pickUp')
+        this.$router.push('/home')
       }else{
         this.$Message.error("用户名或密码输入不正确，请重新输入!");
       }

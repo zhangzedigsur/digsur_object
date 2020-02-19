@@ -1,23 +1,17 @@
 <template>
   <div id="app">
-
-    <div class="content">
-      <router-view></router-view>
-      <!-- <layout></layout> -->
-    </div>
-
+    <v-nav></v-nav>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-   import header from './components/header.vue'
    import nav from './components/nav.vue'
   export default {
     name: 'app',
     Token:'',
 
     components: {
-       'v-header': header,
        'v-nav': nav,
     },
     watch:{
@@ -39,6 +33,8 @@
   @import './css/index.css';
   #app{
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
 .content {
    display: flex;

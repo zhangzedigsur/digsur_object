@@ -18,6 +18,10 @@ export const constantRouterMap = [
     path: "/login",
     component: resolve => require(["../components/login.vue"], resolve)
   },
+  {
+    path: "/home",
+    component: resolve => require(["../components/home.vue"], resolve)
+  },
   // {
   //   path: "/pikeupone",
   //   component: resolve => require(["../pages/menu112.vue"], resolve)
