@@ -26,6 +26,7 @@ router.map(item => {
   console.log(item.name)
   let child = {
     path: item.path,
+    // component: Routerview,
     component: () => import('../../../pages/' + item.name),
     name: item.name,
     meta: {title: item.title, icon: item.icon, noCache: item.noCache}, 
