@@ -15,7 +15,7 @@ Vue.config.productionTip = false
 Vue.prototype.$http = Axios
 //Axios.defaults.baseURL = 'http://192.168.31.99:8040'
 if(localStorage.getItem('id_token')){
-  console.log(localStorage.getItem('id_token'))
+  // console.log(localStorage.getItem('id_token'))
 
 }
 
