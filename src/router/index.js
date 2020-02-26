@@ -20,7 +20,13 @@ export const constantRouterMap = [
   },
   {
     path: "/home",
-    component: resolve => require(["../components/home.vue"], resolve)
+    component: resolve => require(["../components/home.vue"], resolve),
+    children: [
+      {
+        path: "/pikeupone",
+        component: resolve => require(["../components/users.vue"], resolve),
+      }
+    ]
   },
   // {
   //   path: "/pikeupone",

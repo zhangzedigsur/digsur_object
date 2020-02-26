@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="width:100%;height:100%">
       <div class="content-header">
         所有人员
         <span>
@@ -35,7 +35,7 @@
                   key: 'type'
                 },
                 {
-                  title: '指静脉信息',
+                  title: '信息',
                   key: 'address'
                 },
                 {
@@ -58,7 +58,7 @@
                             this.show(params.index)
                           }
                         }
-                      }, '录入指静脉'),
+                      }, '新增'),
                       h('Button', {
                         props: {
                           type: 'error',
