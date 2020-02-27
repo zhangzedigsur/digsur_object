@@ -4,15 +4,18 @@ import Vue from 'vue'
 import App from './App'
 // import VueRouter from 'vue-router'
 import router from './router'
+import store from './store/index.js'
 import  Axios from 'axios'
 import iView from 'iview'
+import '@/mock'
 import 'iview/dist/styles/iview.css'
 
 
 // Vue.use(VueRouter)
 Vue.use(iView);
 Vue.config.productionTip = false
-Vue.prototype.$http = Axios
+// Vue.prototype.$http = Axios
+Vue.prototype.$axios = Axios
 //Axios.defaults.baseURL = 'http://192.168.31.99:8040'
 if(localStorage.getItem('id_token')){
   // console.log(localStorage.getItem('id_token'))
@@ -20,11 +23,11 @@ if(localStorage.getItem('id_token')){
 }
 
 // 全局的请求拦截器
-Axios.interceptors.request.use(function (config) {
-  return config;
-}, function (error) {
-  return Promise.reject(error);
-});
+// Axios.interceptors.request.use(function (config) {
+//   return config;
+// }, function (error) {
+//   return Promise.reject(error);
+// });
 
 // router.beforeEach((to, from, next) => {
 //   if (to.meta.requireAuth) {
@@ -49,6 +52,10 @@ Axios.interceptors.request.use(function (config) {
 
 
 new Vue({
-  router, render: h => h(App)
-}).$mount('#app')
+  el: "#app",
+  store,
+  router,
+  components: { App },
+  template: "<App/>"
+});
 // router.push('/login')

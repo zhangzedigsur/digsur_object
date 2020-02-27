@@ -6,13 +6,16 @@
 </template>
 
 <script type="text/ecmascript-6">
-import navList from '../components/pickUp/index.vue'
+import navList from './pickUp1.vue'
 export default {
   data () {
     return {}
   },
   components: {
     'navList': navList  
+  },
+  methods:{
+    
   }
 }
 </script>

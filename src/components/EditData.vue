@@ -1,18 +1,18 @@
 <template>
   <!-- <div> -->
-  <a-modal width="400px" :title="ModalTit" v-model="visible" @ok="hideModal" okText="确认" cancelText="取消">
-    <a-form layout="horizontal">
-      <a-form-item label="name" :label-col="formItemLayout.labelCol" :wrapper-col="formItemLayout.wrapperCol">
-        <a-input v-model='copyDataT.name' />
-      </a-form-item>
-      <a-form-item label="age" :label-col="formItemLayout.labelCol" :wrapper-col="formItemLayout.wrapperCol">
-        <a-input v-model='copyDataT.age' />
-      </a-form-item>
-      <a-form-item label="address" :label-col="formItemLayout.labelCol" :wrapper-col="formItemLayout.wrapperCol">
-        <a-input v-model='copyDataT.address' />
-      </a-form-item>
-    </a-form>
-  </a-modal>
+  <Modal width="400px" :title="ModalTit" v-model="visible" @ok="hideModal" okText="确认" cancelText="取消">
+    <Form layout="horizontal">
+      <FormItem  label="name" :label-col="formItemLayout.labelCol" :wrapper-col="formItemLayout.wrapperCol">
+        <input v-model='copyDataT.name' />
+      </FormItem >
+      <FormItem  label="age" :label-col="formItemLayout.labelCol" :wrapper-col="formItemLayout.wrapperCol">
+        <input v-model='copyDataT.age' />
+      </FormItem >
+      <FormItem  label="address" :label-col="formItemLayout.labelCol" :wrapper-col="formItemLayout.wrapperCol">
+        <input v-model='copyDataT.address' />
+      </FormItem >
+    </Form>
+  </Modal>
   <!-- </div> -->
 </template>
 <script>
