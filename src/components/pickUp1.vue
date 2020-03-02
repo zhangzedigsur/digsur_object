@@ -1,44 +1,15 @@
 <template>
-<div class="listCon">
-      <Menu :theme="theme1" active-name="$route.path" class='ivu-menu' width='auto'>
-      <Submenu name="1">
+  <div class="listCon">
+    <Menu :theme="theme1" :active-name="navList[0].child[0].key" class='ivu-menu' width='auto'
+      :open-names="[navList[0].key]" >
+      <Submenu :name="item.key" v-for="(item,index) in navList" :key="index">
         <template slot="title">
-          <Icon type="ios-analytics" />
-          菜单1
+          <Icon :type="item.icon" />
+          {{item.mainName}}
         </template>
-        <!-- <Submenu name="1-1" class="ivu-menu_ul">
-          <template slot="title">
-            菜单1-1
-          </template>
-          <MenuItem v-for="route in currentRoutersChildren" :name='route.name' :key="route.path" :item="route.name"
-            @click.native="clickLink(route.path,$event)">
-          {{route.name}}</MenuItem>
-        </Submenu> -->
-        <MenuItem name="1-1" @click.native="goRouter1">菜单1-1</MenuItem>
-        <MenuItem name="1-2" @click.native="goRouter2">菜单1-2</MenuItem>
-        <MenuItem name="1-3">菜单1-3</MenuItem>
-        <MenuItem name="1-4">菜单1-4</MenuItem>
-
-      </Submenu>
-      <Submenu name="2">
-        <template slot="title">
-          <Icon type="ios-filing" />
-          菜单2
-        </template>
-        <MenuItem name="2-1">菜单2-1</MenuItem>
-        <MenuItem name="2-2">菜单2-2</MenuItem>
-        <!-- <Submenu name="3">
-          <template slot="title">菜单2-3</template>
-          <MenuItem name="3-1">菜单2-3-1</MenuItem>
-          <MenuItem name="3-2">菜单2-3-2</MenuItem>
-        </Submenu> -->
-      </Submenu>
-      <Submenu name="4">
-        <template slot="title">
-          <Icon type="ios-cog" />
-          菜单3
-        </template>
-        <MenuItem name="4-1">菜单3-1</MenuItem>
+        <MenuItem v-for="(option,index) in item.child" :key="index" :name="option.key" @click.native="goRouter2">
+        {{option.name}}
+        </MenuItem>
       </Submenu>
     </Menu>
   </div>
@@ -47,21 +18,88 @@
 
 
 <script>
-import {mapState, mapGetters} from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 export default {
   data () {
     return {
       currentRoutersChildren: [],
       theme1: 'dark',
+      navList: [
+        {
+          mainName: '菜单1',
+          icon: 'ios-analytics',
+          key: 1,
+          child: [
+            {
+              name: '菜单1-1',
+              key: '1-1'
+            },
+            {
+              name: '菜单1-2',
+              key: '1-2'
+            },
+            {
+              name: '菜单1-3',
+              key: '1-3'
+            },
+            {
+              name: '菜单1-4',
+              key: '1-4'
+            }
+          ]
+        },
+        {
+          mainName: '菜单2',
+          icon: 'ios-analytics',
+          key: 2,
+          child: [
+            {
+              name: '菜单2-1',
+              key: '2-1'
+            },
+            {
+              name: '菜单2-2',
+              key: '2-2'
+            },
+            {
+              name: '菜单2-3',
+              key: '2-3'
+            },
+            {
+              name: '菜单2-4',
+              key: '2-4'
+            }
+          ]
+        },
+        {
+          mainName: '菜单3',
+          icon: 'ios-analytics',
+          key: 3,
+          child: [
+            {
+              name: '菜单3-1',
+              key: '3-1'
+            },
+            {
+              name: '菜单3-2',
+              key: '3-2'
+            },
+            {
+              name: '菜单3-3',
+              key: '3-3'
+            }
+          ]
+        }
+      ]
     }
   },
-  computed:{
-    router_param:function(){
+  computed: {
+    router_param: function () {
       return this.$store.state.router_param
     }
   },
-  mounted(){
-
+  mounted () {
+   this.goRouter1()
   },
 
   created () {
@@ -69,10 +107,10 @@ export default {
   },
   methods: {
     goRouter1 () {
-      this.$store.commit('router_param','1-1')
+      this.$store.commit('router_param', '1-1')
     },
     goRouter2 () {
-      this.$store.commit('router_param','1-2')
+      this.$store.commit('router_param', '1-2')
     },
     setCurrentSystemRouter () {
       let self = this
@@ -104,7 +142,7 @@ export default {
 }
 </script>
 <style scoped lang="less">
-.listCon{
+.listCon {
   width: 15%;
   height: 100%;
   background: #1c2438;

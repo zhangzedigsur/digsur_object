@@ -1,5 +1,5 @@
 <template>
-  <div style="width:100%;height:100%">
+  <div style="width:100%;height:100%;padding:20px 20px;">
     <Button @click="handleAdd()">新增</Button>
     <!-- <input type="text" class="search" v-model="textName" placeholder="请输入名字或城市"> -->
     <!-- <div

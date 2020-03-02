@@ -67,7 +67,7 @@ export default {
         { name: '办公业务3', icon: 'ios-contact-outline' },
         { name: '办公业务4', icon: 'ios-settings-outline' },
       ],
-      target:null
+      target:0
     }
   },
   methods: {
