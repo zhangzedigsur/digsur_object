@@ -1,30 +1,26 @@
 <template>
   <!-- <div> -->
-  <Modal width="400px" :title="ModalTit" v-model="visible" @ok="hideModal" okText="确认" cancelText="取消">
-    <Form layout="horizontal">
-      <FormItem  label="name" :label-col="formItemLayout.labelCol" :wrapper-col="formItemLayout.wrapperCol">
-        <input v-model='copyDataT.name' />
+  <Modal width="400px" :title="ModalTit" v-model="visible" @on-ok="hideModal" okText="确认" cancelText="取消">
+    <Form :label-width="100" :model="copyDataT">
+      <FormItem  label="name">
+        <Input v-model='copyDataT.name' />
       </FormItem >
-      <FormItem  label="age" :label-col="formItemLayout.labelCol" :wrapper-col="formItemLayout.wrapperCol">
-        <input v-model='copyDataT.age' />
+      <FormItem  label="age">
+        <Input v-model='copyDataT.age' />
       </FormItem >
-      <FormItem  label="address" :label-col="formItemLayout.labelCol" :wrapper-col="formItemLayout.wrapperCol">
-        <input v-model='copyDataT.address' />
+      <FormItem  label="address">
+        <Input v-model='copyDataT.address' />
       </FormItem >
     </Form>
   </Modal>
   <!-- </div> -->
 </template>
 <script>
-  const formItemLayout = {
-    labelCol: { span: 4 },
-    wrapperCol: { span: 18 },
-  };
 
   export default {
     data() {
       return {
-        formItemLayout,
+        // formItemLayout,
         visible: false,
         objVal: {},
         ModalTit: '',
