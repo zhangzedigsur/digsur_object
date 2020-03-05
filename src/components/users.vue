@@ -1,5 +1,5 @@
 <template>
-  <div style="width:100%;height:100%;margin:24px">
+  <div style="width:85%;height:100%;padding:24px;">
     <div class="title-class">
       <div class="title-font">{{table_title}}</div>
       <div style="margin-top:20px">
@@ -188,7 +188,7 @@
         this.dataSource = this.dataReplace[index-1]
       },
       pages(){
-        debugger
+        // debugger
         this.pageObj = {
           total:this.proData.length,
           num:5,
