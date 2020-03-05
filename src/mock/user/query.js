@@ -8,7 +8,7 @@ Mock.mock('/query', 'post', ({body}) => {
   let porjectArrNew = []
   queryData = JSON.parse(body)
   projectArr.forEach((item, count) => {
-    if (item.name.indexOf(queryData.name) != -1 || item.address.indexOf(queryData.address) != -1 || (item.age<=queryData.max&&item.age>=queryData.min)) {
+    if (item.name.indexOf(queryData.name) != -1 && item.address.indexOf(queryData.address) != -1 && (item.age<=queryData.max&&item.age>=queryData.min)) {
         porjectArrNew.push(item)
     }
   })

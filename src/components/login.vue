@@ -60,6 +60,15 @@ export default {
   },
   methods: {
     handleSubmit() {
+      this.$refs.formInline.validate((valid) => {
+          if (valid) {
+              this.loginTo()
+          } else {
+              this.$Message.error('用户名或密码格式不能为空，密码长度不能小于6位!');
+          }
+      })
+    },
+    loginTo() {
       if(this.formInline.user == 'admin' && this.formInline.password == '123456'){
         // let arr = ["pickUp", "acquisition", "module"];
         this.$Message.success("登录成功!");
