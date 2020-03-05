@@ -1,27 +1,27 @@
 <template>
   <div class="navWrapper">
-    <div class="left">
-      <div class="logo">
-        <img src="https://file.iviewui.com/pro-app-dist/img/logo-dark.cc417ece.png" alt="">
-      </div>
 
-      <ul class="nav">
-        <li class="item" :style="`border-color:${target == index? '#f6ca9d':''}`" v-for="(item,index) in navList" :key="index" @click="Office(item,index)">
-          <Icon :type="item.icon" size='26' color='#f6ca9d' />
-          <span>{{item.name}}</span>
-        </li>
-      </ul>
+    <div class="logo">
+      <img src="https://img5.tianyancha.com/logo/lll/487afbfce355803949ffc96fa424cd2c.png@!f_200x200" alt="">
     </div>
+
+    <ul class="nav">
+      <li class="item" :style="`border-color:${target == index? '#f6ca9d':''}`" v-for="(item,index) in navList"
+        :key="index" @click="Office(item,index)">
+        <Icon :type="item.icon" size='26' :color="`${target == index? '#f6ca9d':''}`"/>
+        <span :style="`color:${target == index? '#f6ca9d':''}`">{{item.name}}</span>
+      </li>
+    </ul>
 
     <div class="control">
       <div class="option">
 
         <div class="icon" @click="refersh">
-          <Icon type="md-refresh" size='26' color='#f6ca9d' />
+          <Icon type="md-refresh" size='26' />
         </div>
 
         <div class="icon">
-          <Icon type="ios-notifications-outline" size='26' color='#f6ca9d' />
+          <Icon type="ios-notifications-outline" size='26' />
         </div>
 
         <Dropdown>
@@ -62,12 +62,12 @@ export default {
         { name: '设置', icon: 'ios-settings-outline' },
       ],
       navList: [
-        { name: '办公业务1', icon: 'ios-contact-outline' },
-        { name: '办公业务2', icon: 'ios-settings-outline' },
-        { name: '办公业务3', icon: 'ios-contact-outline' },
-        { name: '办公业务4', icon: 'ios-settings-outline' },
+        { name: '办公业务一', icon: 'ios-contact-outline' },
+        { name: '办公业务二', icon: 'ios-settings-outline' },
+        { name: '办公业务三', icon: 'ios-contact-outline' },
+        { name: '办公业务四', icon: 'ios-settings-outline' },
       ],
-      target:0
+      target: 0
     }
   },
   methods: {
@@ -81,7 +81,7 @@ export default {
       this.$router.push({ path: '/login' })
     },
 
-    Office (item,index) {
+    Office (item, index) {
       this.target = index
       switch (name) {
         case '办公业务1':
@@ -112,56 +112,62 @@ export default {
 <style scoped lang="less">
 .navWrapper {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  position: relative;
   height: 9%;
   width: 100%;
   background: #1c2438;
-  .left {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+
+  .logo {
+    width: 15%;
     height: 100%;
-    width: 50%;
-    .logo {
-      width: 25%;
+    box-sizing: border-box;
+    padding: 0 4%;
+    img {
+      width: 100%;
       height: 100%;
-      img {
-        width: 100%;
-        height: 100%;
+    }
+  }
+
+  .nav {
+    position: absolute;
+    top: 0;
+    left: 15%;
+    height: 100%;
+    .item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      float: left;
+      box-sizing: border-box;
+      padding: 0 20px;
+      height: 100%;
+      border-bottom: 5px solid #1c2438;
+      span {
+        color: rgb(210, 105, 30);
+        font-size: 20px;
+        margin-left: 5px;
+        font-weight: bold;
+      }
+      i{
+        color: rgb(210, 105, 30);
       }
     }
-    .nav {
-      display: flex;
-      margin-left: 6.5%;
-      width: 75%;
-      height: 100%;
-      .item {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-sizing: border-box;
-        width: 25%;
-        height: 100%;
-        border-bottom: 5px solid #1c2438;
-        span {
-          color: #f6ca9d;
-          font-size: 20px;
-          margin-left: 5px;
-          font-weight: bold;
-        }
+    .item:hover {
+      border-color: #f6ca9d;
+      i{
+        color: #f6ca9d;
       }
-      .item:hover {
-        border-color: #f6ca9d;
+      span {
+        color: #f6ca9d;
       }
     }
   }
 
   .control {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 50%;
+    position: absolute;
+    right: 0;
+    top: 0;
     height: 100%;
     .option {
       display: flex;
@@ -178,10 +184,12 @@ export default {
         height: 100%;
         padding: 0 20px;
         cursor: pointer;
+        color: rgb(210, 105, 30);
         border-bottom: 5px solid #1c2438;
       }
       .icon:hover {
         border-color: #f6ca9d;
+        color: #f6ca9d;
       }
       .user {
         display: flex;
@@ -215,5 +223,4 @@ export default {
     }
   }
 }
-
 </style>
