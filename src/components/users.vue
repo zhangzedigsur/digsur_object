@@ -48,7 +48,7 @@
     </Table>
     <div style="margin: 10px;overflow: hidden">
         <div style="float: right;">
-            <Page :total="pageObj.total" :current="pageObj.current" @on-change="changePage"></Page>
+            <Page :total="pageObj.total" :current="pageObj.current" :page-size="pageObj.num" @on-change="changePage"></Page>
         </div>
     </div>
     <edit-data @editintroduce="editintroduceSelf" ref="showEdit"></edit-data>
@@ -188,9 +188,15 @@
         this.dataSource = this.dataReplace[index-1]
       },
       pages(){
+        debugger
+        this.pageObj = {
+          total:this.proData.length,
+          num:5,
+          current:1,
+        }
           // 最终分页结果
           const pages=[]
-          this.pageObj.total = this.proData.length
+          // this.pageObj.total = this.proData.length
           // console.log(this.pageObj.total)
           // 遍历icon列表
           this.proData.forEach((item,index) => {
@@ -243,6 +249,8 @@
     },
     watch:{ 
       router_param(newdata){
+        debugger;
+        // this.pageObj.current = 1
         if(newdata == '1-1'){
           this.getProjectList()
         }else{
