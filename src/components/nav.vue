@@ -2,7 +2,7 @@
   <div class="navWrapper">
 
     <div class="logo">
-      <img src="https://img5.tianyancha.com/logo/lll/487afbfce355803949ffc96fa424cd2c.png@!f_200x200" alt="">
+      <img src="../../static/img/logo.jpg" alt="">
     </div>
 
     <ul class="nav">
