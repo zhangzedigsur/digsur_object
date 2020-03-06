@@ -1,7 +1,7 @@
 <template>
   <div class="listCon">
-    <Menu :theme="theme1" :active-name="navList[0].child[0].key" class='ivu-menu' width='auto'
-      :open-names="[navList[0].key]" >
+    <Menu :theme="theme1" class='ivu-menu' width='auto' accordion :open-names="[navList[0].key]"
+      :active-name="navList[0].child[0].key">
       <Submenu :name="item.key" v-for="(item,index) in navList" :key="index">
         <template slot="title">
           <Icon :type="item.icon" />
@@ -99,7 +99,7 @@ export default {
     }
   },
   mounted () {
-   this.goRouter1()
+    //  this.goRouter1()
   },
 
   created () {
