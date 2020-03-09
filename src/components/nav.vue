@@ -2,7 +2,7 @@
   <div class="navWrapper">
 
     <div class="logo">
-      <img src="../../static/img/logo.jpg" alt="">
+      <img src="../../static/img/logo.png" alt="">
     </div>
 
     <ul class="nav">
@@ -119,14 +119,17 @@ export default {
   background: #1c2438;
 
   .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 15%;
     height: 100%;
     box-sizing: border-box;
-    padding: 0 4%;
-    img {
-      width: 100%;
-      height: 100%;
-    }
+    // padding: 0 4%;
+    // img {
+    //   width: 100%;
+    //   height: 100%;
+    // }
   }
 
   .nav {
