@@ -2,7 +2,7 @@
   <div class="navWrapper">
 
     <div class="logo">
-      <img src="https://img5.tianyancha.com/logo/lll/487afbfce355803949ffc96fa424cd2c.png@!f_200x200" alt="">
+      <img src="../../static/img/logo.png" alt="">
     </div>
 
     <ul class="nav">
@@ -119,14 +119,17 @@ export default {
   background: #1c2438;
 
   .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 15%;
     height: 100%;
     box-sizing: border-box;
-    padding: 0 4%;
-    img {
-      width: 100%;
-      height: 100%;
-    }
+    // padding: 0 4%;
+    // img {
+    //   width: 100%;
+    //   height: 100%;
+    // }
   }
 
   .nav {
