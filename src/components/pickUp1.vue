@@ -7,7 +7,7 @@
           <Icon :type="item.icon" />
           {{item.mainName}}
         </template>
-        <MenuItem v-for="(option,index) in item.child" :key="index" :name="option.key" @click.native="goRouter2">
+        <MenuItem v-for="(option,index) in item.child" :key="index" :name="option.key" @click.native="goRouter2(option.key)">
         {{option.name}}
         </MenuItem>
       </Submenu>
