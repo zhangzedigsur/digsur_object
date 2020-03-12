@@ -23,7 +23,7 @@
           </FormItem>
           <!-- <FormItem> -->
           <div style="float:right">
-            <Button size="small" type='primary' @click="searchBtn()">查询</Button>
+            <Button size="small" type='primary' icon="ios-search" @click="searchBtn()">查询</Button>
             <Button size="small" type='primary' @click="restBtn()">重置</Button>
           </div>
           <!-- </FormItem > -->
@@ -32,8 +32,8 @@
 
     </div>
     <div style="margin-bottom:20px">
-      <Button size="small" type='primary' @click="handleAdd()">新增</Button>
-      <Button size="small" type='primary' @click="all_del()">批量删除</Button>
+      <Button size="small" type='primary' icon="ios-add" @click="handleAdd()">新增</Button>
+      <Button size="small" type='primary' icon="ios-trash-outline" @click="all_del()">批量删除</Button>
     </div>
 
     <!-- <input type="text" class="search" v-model="textName" placeholder="请输入名字或城市"> -->
@@ -285,7 +285,10 @@ export default {
         address: '',
         min: 15,
         max: 35,
+        type: "",
+        queryTime: [],
       }
+      this.getProjectList()
     },
     selection(data){
       console.log(data)
