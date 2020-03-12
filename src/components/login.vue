@@ -132,7 +132,7 @@ export default {
     vertical-align: top;
     width: 100%;
 }
-.ivu-form-item {
+.ivu-login .ivu-form-item {
     margin-bottom: 24px;
     vertical-align: top;
     zoom: 1;
