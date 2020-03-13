@@ -56,6 +56,7 @@ var projectArr = [{
   key: '6',
   name: '花洁',
   age: '35',
+  type:"游客",
   address: '大同市',
   StartTime:"2020-03-11",
   EndTime:"2020-03-11",
