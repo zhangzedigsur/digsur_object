@@ -7,7 +7,7 @@
 
     <ul class="nav">
       <li class="item" :style="`border-color:${target == index? '#f6ca9d':''}`" v-for="(item,index) in navList"
-        :key="index" @click="Office(item,index)">
+        :key="index" @click="Office(item.name,index)">
         <Icon :type="item.icon" size='26' :color="`${target == index? '#f6ca9d':''}`"/>
         <span :style="`color:${target == index? '#f6ca9d':''}`">{{item.name}}</span>
       </li>
@@ -67,7 +67,7 @@ export default {
         { name: '办公业务三', icon: 'ios-contact-outline' },
         { name: '办公业务四', icon: 'ios-settings-outline' },
       ],
-      target: 0
+      target: null
     }
   },
   methods: {
@@ -81,19 +81,19 @@ export default {
       this.$router.push({ path: '/login' })
     },
 
-    Office (item, index) {
+    Office (name, index) {
       this.target = index
       switch (name) {
-        case '办公业务1':
+        case '办公业务一':
+          this.$router.push({ path: '/pikeupone' })
+          break;
+        case '办公业务二':
           this.$router.push({ path: '' })
           break;
-        case '办公业务2':
+        case '办公业务三':
           this.$router.push({ path: '' })
           break;
-        case '办公业务3':
-          this.$router.push({ path: '' })
-          break;
-        case '办公业务4':
+        case '办公业务四':
           this.$router.push({ path: '' })
           break;
       }
@@ -124,12 +124,6 @@ export default {
     justify-content: center;
     width: 15%;
     height: 100%;
-    box-sizing: border-box;
-    // padding: 0 4%;
-    // img {
-    //   width: 100%;
-    //   height: 100%;
-    // }
   }
 
   .nav {

@@ -1,7 +1,6 @@
 <template>
   <div class="listCon">
-    <Menu :theme="theme1" class='ivu-menu' width='auto' accordion :open-names="[navList[0].key]"
-      :active-name="navList[0].child[0].key">
+    <Menu :theme="theme1" class='ivu-menu' width='auto' accordion >
       <Submenu :name="item.key" v-for="(item,index) in navList" :key="index">
         <template slot="title">
           <Icon :type="item.icon" />
@@ -114,22 +113,22 @@ export default {
     },
     setCurrentSystemRouter () {
       let self = this
-      console.log(this.$route, this.$router.options.routes)
+      // console.log(this.$route, this.$router.options.routes)
       var router = this.$router.options.routes
       var route = this.$route.path
       for (var i = 0; i < router.length; i++) {
         var path = router[i].path
-        console.log(path, 123, route)
+        // console.log(path, 123, route)
         if (path == route) {
           self.currentRoutersChildren = router[i].children
-          console.log(self.currentRoutersChildren)
+          // console.log(self.currentRoutersChildren)
         }
       }
 
 
     },
     clickLink (routePath, e) {
-      console.log(routePath, 11234)
+      // console.log(routePath, 11234)
 
       this.$router.push(routePath)
     },
