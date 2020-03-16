@@ -2,6 +2,7 @@
   <div style="width:85%;height:100%;padding:24px;">
     <div class="title-class">
       <div class="title-font">{{table_title}}</div>
+<<<<<<< HEAD
       <div style="margin-top:20px">
         <Form :label-width="80" :model="textName" label-position="right">
           <FormItem label="name">
@@ -18,12 +19,40 @@
             <Button type='primary' @click="searchBtn()">查询</Button>
             <Button type='primary' @click="restBtn()">重置</Button>
           </FormItem>
+=======
+      <div style="margin:10px 0;border:1px solid #dcdee2;padding:10px 20px 0 0 ">
+        <Form :label-width="80" :model="textName" label-position="right">
+          <FormItem label="name">
+            <Input size="small" v-model='textName.name' />
+          </FormItem>
+          <FormItem label="age">
+            <InputNumber size="small" v-model="textName.min" :min="1" placeholder="min" :max="100000"></InputNumber> -
+            <InputNumber size="small" v-model="textName.max" :min="1" placeholder="max" :max="100000"></InputNumber>
+          </FormItem>
+          <FormItem label="address">
+            <Input size="small" v-model='textName.age' />
+          </FormItem>
+          <FormItem label="用户权限">
+            <Input size="small" v-model='textName.type' />
+          </FormItem>
+          <FormItem label="date">
+            <Date-picker size="small" type="daterange" :value="textName.queryTime" confirm @on-change="getDate" :editable="false"
+              placement="bottom-end" placeholder="选择日期" style="width: 200px"></Date-picker>
+          </FormItem>
+          <!-- <FormItem> -->
+          <div style="float:right">
+            <Button size="small" type='primary' icon="ios-search" @click="searchBtn()">查询</Button>
+            <Button size="small" type='primary' @click="restBtn()">重置</Button>
+          </div>
+          <!-- </FormItem > -->
+>>>>>>> 4c2238720cd562c920083787ff5d055a734589e8
         </Form>
       </div>
 
     </div>
     <div style="margin-bottom:20px">
-      <Button type='primary' @click="handleAdd()">新增</Button>
+      <Button size="small" type='primary' icon="ios-add" @click="handleAdd()">新增</Button>
+      <Button size="small" type='primary' icon="ios-trash-outline" @click="all_del()">批量删除</Button>
     </div>
 
     <!-- <input type="text" class="search" v-model="textName" placeholder="请输入名字或城市"> -->
@@ -37,19 +66,29 @@
     </div> -->
     <!-- <a-icon type="search" @click="searchBtn" style="margin-left:-33px" /> -->
 
-    <Table style="margin-top:5px" border :data="dataSource" :columns="columns">
+    <Table size="small" style="margin-top:5px" border :data="dataSource" :columns="columns" @on-selection-change="selection">
       <!-- <template slot="title" slot-scope="currentPageData">
         {{table_title}}
       </template> -->
       <template slot-scope="{row,index}" slot="action">
+<<<<<<< HEAD
         <Button type="info" size="small" style="margin-right: 5px" @click="show(index)">详情</Button>
         <Button type="primary" size="small" style="margin-right: 5px" @click="del(row)">删除</Button>
         <Button type="error" size="small" @click="save(row)">修改</Button>
+=======
+        <Button type="primary" size="small" style="margin-right: 5px" @click="save(row)">修改</Button>
+        <Button type="error" size="small" @click="onDelete(row)">删除</Button>
+>>>>>>> 4c2238720cd562c920083787ff5d055a734589e8
       </template>
     </Table>
     <div style="margin: 10px;overflow: hidden">
       <div style="float: right;">
+<<<<<<< HEAD
         <Page :total="pageObj.total" :current="pageObj.current" :page-size="pageObj.num" @on-change="changePage"></Page>
+=======
+        <Page size="small" :total="pageObj.total" :current="pageObj.current" :page-size="pageObj.num"
+          @on-change="changePage"></Page>
+>>>>>>> 4c2238720cd562c920083787ff5d055a734589e8
       </div>
     </div>
     <edit-data @editintroduce="editintroduceSelf" ref="showEdit"></edit-data>
@@ -76,6 +115,11 @@ export default {
         address: '',
         min: 15,
         max: 35,
+<<<<<<< HEAD
+=======
+        type: "",
+        queryTime: [],
+>>>>>>> 4c2238720cd562c920083787ff5d055a734589e8
       },
       dataSource: [
 
@@ -83,8 +127,13 @@ export default {
       table_title: '研发部员工身份信息',
       count: 2,
       columns: [{
+<<<<<<< HEAD
         type: 'index',
         width: 130,
+=======
+        type: 'selection',
+        width: 60,
+>>>>>>> 4c2238720cd562c920083787ff5d055a734589e8
         align: 'center'
       }, {
         title: 'name',
@@ -97,10 +146,27 @@ export default {
       }, {
         title: 'address',
         key: 'address',
+<<<<<<< HEAD
       }, {
         title: 'Action',
         slot: 'action',
         // scopedSlots: { customRender: 'operation' },
+=======
+      },
+      {
+        title: '用户权限',
+        key: 'type',
+      },
+      {
+        title: '开始时间',
+        key: 'StartTime',
+      }, {
+        title: '结束时间',
+        key: 'EndTime',
+      }, {
+        title: 'Action',
+        slot: 'action',
+>>>>>>> 4c2238720cd562c920083787ff5d055a734589e8
       }],
       pageObj: {
         total: 100,
@@ -108,8 +174,13 @@ export default {
         current: 1,
       },
       dataReplace: [],
+<<<<<<< HEAD
       modalShow: false,
       row: null
+=======
+      selectData:[],
+
+>>>>>>> 4c2238720cd562c920083787ff5d055a734589e8
     }
   },
   computed: {
@@ -133,6 +204,7 @@ export default {
         this.dataSource = dataSource
       }
     },
+<<<<<<< HEAD
     del (row) {
       this.modalShow = true
       this.row = row
@@ -149,10 +221,20 @@ export default {
         address：${this.proData[index].address}`
       })
     },
+=======
+    onDelete (row) {
+      this.proData = this.proData.filter(item => item.key !== row.key)
+      this.dataReplace = this.pages()
+    },
+>>>>>>> 4c2238720cd562c920083787ff5d055a734589e8
     handleAdd () {
       this.$refs.showAdd.showModal()
     },
     addintroduceSelf (opt) {
+<<<<<<< HEAD
+=======
+      console.log(222,opt)
+>>>>>>> 4c2238720cd562c920083787ff5d055a734589e8
       // this.proData.forEach(i => {
       //   let num = Number(i.key)
       //   num++;
@@ -235,6 +317,24 @@ export default {
       return pages
     },
 
+<<<<<<< HEAD
+=======
+    getDate (data) {
+      this.textName.queryTime = data
+    },
+    //批量删除
+    all_del () {
+      if(this.selectData.length>=0){
+        this.selectData.forEach(element=>{
+          this.proData = this.proData.filter(item => item.key !== element.key)
+        })
+        this.dataReplace = this.pages()
+        this.selectData = [];
+      }else{
+        this.$Message.error('请勾选要删除的选项')
+      }
+    },
+>>>>>>> 4c2238720cd562c920083787ff5d055a734589e8
     searchBtn () {
       var newArraySource = []
       if (this.textName.name || this.textName.age || this.textName.min || this.textName.max) {
@@ -263,6 +363,7 @@ export default {
         address: '',
         min: 15,
         max: 35,
+<<<<<<< HEAD
       }
     }
   },
@@ -274,11 +375,33 @@ export default {
         this.getProjectList()
       } else {
         this.getProjectList1()
+=======
+        type: "",
+        queryTime: [],
+>>>>>>> 4c2238720cd562c920083787ff5d055a734589e8
       }
+      this.getProjectList()
+    },
+    selection(data){
+      console.log(data)
+      this.selectData = data
+    
+    }
+  },
+  watch: {
+    router_param (newdata) {
+      // this.pageObj.current = 1
+      if (newdata == '1-1') {
+        this.getProjectList()
+      } 
+      // else {
+      //   this.getProjectList1()
+      // }
     }
   }
 }
 </script>
+<<<<<<< HEAD
 <style>
 .editable-cell {
   position: relative;
@@ -324,6 +447,53 @@ export default {
   margin-left: 10px;
 }
 
+=======
+<style scoped>
+.editable-cell {
+  position: relative;
+}
+
+.editable-cell-input-wrapper,
+.editable-cell-text-wrapper {
+  padding-right: 24px;
+}
+
+.editable-cell-text-wrapper {
+  padding: 5px 24px 5px 5px;
+}
+
+.editable-cell-icon,
+.editable-cell-icon-check {
+  position: absolute;
+  right: 0;
+  width: 20px;
+  cursor: pointer;
+}
+
+.editable-cell-icon {
+  line-height: 18px;
+  display: none;
+}
+
+.editable-cell-icon-check {
+  line-height: 28px;
+}
+
+.editable-cell:hover .editable-cell-icon {
+  display: inline-block;
+}
+
+.editable-cell-icon:hover,
+.editable-cell-icon-check:hover {
+  color: #108ee9;
+}
+
+.editable-add-btn {
+  margin-bottom: 8px;
+  margin-left: 10px;
+}
+
+>>>>>>> 4c2238720cd562c920083787ff5d055a734589e8
 /* .container {
     height: 70px;
     width: 800px;
@@ -361,6 +531,10 @@ export default {
   font-size: 20px;
 }
 .ivu-form-item {
+<<<<<<< HEAD
+=======
+  margin-bottom: 15px;
+>>>>>>> 4c2238720cd562c920083787ff5d055a734589e8
   display: inline-block;
 }
 </style>

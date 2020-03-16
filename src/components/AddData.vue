@@ -11,6 +11,19 @@
             <FormItem  label="address">
                 <Input v-model='copyDataT.address' />
             </FormItem >
+            <FormItem  label="用户权限">
+                <Input v-model='copyDataT.type' />
+            </FormItem >
+            <FormItem  label="开始时间">
+              <Date-picker size="small" type="date" :value.sync="copyDataT.StartTime" @on-change="addDate1" format="yyyy-MM-dd"
+              placement="bottom-end" placeholder="选择日期" style="width: 200px" :editable="false"></Date-picker>
+                <!-- <Input v-model='copyDataT.StartTime' /> -->
+            </FormItem >
+            <FormItem  label="结束时间">
+              <Date-picker size="small" type="date" :value.sync="copyDataT.EndTime" @on-change="addDate2" format="yyyy-MM-dd"
+              placement="bottom-end" placeholder="选择日期" style="width: 200px" :editable="false"></Date-picker>
+                <!-- <Input v-model='copyDataT.EndTime' /> -->
+            </FormItem >
         </Form>
     </Modal>
     <!-- </div> -->
@@ -39,7 +52,6 @@
                 this.visible = true
             },
             hideModal() {
-                console.log(111)
                 this.$emit('introduce', this.copyDataT)
                 this.visible = false
             },
@@ -51,6 +63,12 @@
                     cancelText: '取消',
                 });
             },
+            addDate1(data){
+              this.copyDataT.StartTime = data
+            },
+            addDate2(data){
+              this.copyDataT.EndTime = data
+            }
             // copyData() {
             //     var mianbaoxie = JSON.parse(JSON.stringify(this.objVal))
             //     return mianbaoxie;

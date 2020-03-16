@@ -35,7 +35,7 @@ export const constantRouterMap = [
 ];
 
 export default new Router({
-  mode: "history", // require service support
+  // mode: "history", // require service support
   // base: "/", // 项目根路径
   // scrollBehavior: () => ({ y: 0 }),
   // routes: constantRouterMap.concat(baseInfoManagementRouter)
